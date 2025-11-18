@@ -22,8 +22,7 @@ No dependencies. No build tooling. Works directly in the browser with `import` o
 ## Features
 
 - Pure JavaScript ES module — drop-in and portable  
-- Automatically derives candidates  
-- Supports manual candidate overrides  
+- Considers partially solved grid and populated candidates
 - Detects beginner → intermediate solving techniques  
 - Returns machine-readable hint structures (row/col coordinates, technique names, descriptive text, links)  
 - Suitable for use in web apps, PWAs, and teaching tools
@@ -36,6 +35,7 @@ No dependencies. No build tooling. Works directly in the browser with `import` o
 
 ```js
   import SudokuHints from "https://cdn.jsdelivr.net/gh/smoothcontract/sudoku_hints@v1.0.0/src/sudoku_hints.js";
+```
 
 ### Install via Git submodule (recommended for apps)
 
@@ -43,6 +43,7 @@ Add the repo as a submodule:
 
 ```bash
   git submodule add https://github.com/smoothcontract/sudoku_hints.git path/to/submodule
+```
 
 ### Using with Rails 8 (no npm, no bundler) — importmap 
 
@@ -50,11 +51,13 @@ Add the repo as a submodule:
 
 ```bash
   git submodule add https://github.com/smoothcontract/sudoku_hints.git vendor/javascript/sudoku_hints
+```
 
 Pin it in `config/importmap.rb`:
 
 ```ruby
   pin "sudoku_hints", to: "vendor/sudoku_hints/src/sudoku_hints.js"
+```
 
 Use it in your application JS:
 
@@ -63,7 +66,7 @@ Use it in your application JS:
 
   const engine = new SudokuHints(board, candidates);
   const hints = engine.checkHiddenSingleHints();
-
+```
 
 ## Usage Example
 
@@ -93,7 +96,7 @@ Use it in your application JS:
   const singles = hints.checkNakedSingleHints();
 
   console.log(singles);
-
+```
 
 ## Development
 
@@ -103,6 +106,7 @@ To contribute:
   git clone https://github.com/smoothcontract/sudoku_hints
   cd sudoku_hints
   # edit src/sudoku_hints.js
+```
 
 When used as a git submodule:
 
@@ -111,23 +115,22 @@ When used as a git submodule:
   # make edits
   git commit
   git push
+```
 
 Then update the submodule pointer in the host app:
 
 ```bash
   git add vendor/sudoku_hints
   git commit -m "Update submodule"
-
+```
 
 ## License
 
-Released under the MIT License. See LICENSE￼ for details.
+Released under the MIT License. See LICENSE￼for details.
 
 
 ## Credits
 
-SudokuHints is developed by Andrew Retmanski
-https://github.com/smoothcontract
+SudokuHints is developed by [Andrew Retmanski](https://github.com/smoothcontract)
 
-Originally extracted from the hint logic powering HeadScratcher:
-https://headscratcher.world
+Originally extracted from the hint logic powering [HeadScratcher](https://headscratcher.world)
